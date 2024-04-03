@@ -5,7 +5,7 @@ plugins {
 group = "kr.vanilage"
 version = "1.0" // 여기에 버전을 작성하세요.
 
-var buildPath = "" // 빌드 주소를 설정하세요.
+var buildPath = "D:\\Programming\\Mcserver\\Kraken\\plugins" // 빌드 주소를 설정하세요.
 
 repositories {
     mavenCentral()
