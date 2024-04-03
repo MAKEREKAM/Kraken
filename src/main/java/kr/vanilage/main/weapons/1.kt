@@ -38,7 +38,7 @@ class `1`(override val coolTick : Int) : Weapon{
                                     .subtract(bullet.location.toVector()).normalize().multiply(3)
 
                             if (bullet.location.distance(attackEntity.location) >= 3) {
-                                Bukkit.getScheduler().runTaskLater(Main.instance, this, 1)
+                                Bukkit.getScheduler().runTaskLater(Main.instance, this, 5)
                             }
 
                             else {
