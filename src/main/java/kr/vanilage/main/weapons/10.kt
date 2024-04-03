@@ -85,7 +85,9 @@ class `10`(override val coolTick : Int) : Weapon{
                     display.teleport(bullet.location.apply {
                         yaw = display.yaw + 130
                         pitch = display.pitch + 130
-                    })
+                    }.add(
+                        bullet.location.toVector().subtract(display.location.toVector()).normalize().multiply(3)
+                    ))
 
                     bullet.world.spawnParticle(
                         Particle.CRIT,
