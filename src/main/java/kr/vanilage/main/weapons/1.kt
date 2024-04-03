@@ -15,8 +15,8 @@ class `1`(override val coolTick : Int) : Weapon{
     override fun skill(player : Player) {
         val bullet = player.world.spawn(player.location, Turtle::class.java)
         bullet.setBaby()
-        bullet.isVisibleByDefault = false
-        bullet.isInvulnerable = true
+//        bullet.isVisibleByDefault = false
+//        bullet.isInvulnerable = true
 
         val entities = bullet.getNearbyEntities(10.0, 10.0, 10.0)
 
@@ -24,8 +24,21 @@ class `1`(override val coolTick : Int) : Weapon{
 
         val attack = object : Runnable {
             override fun run() {
-                if (!bullet.isDead) {
-                    while (entities)
+                if (!bullet.isDead && filteredEntity.isNotEmpty()) {
+                    val attackEntity = filteredEntity[0]
+                    filteredEntity.remove(attackEntity)
+
+                    while (bullet.location.distance(attackEntity.location) >= 3) {
+                        bullet.velocity =
+                            attackEntity.location.toVector()
+                                .subtract(bullet.location.toVector())
+                    }
+
+                    (attackEntity as LivingEntity).damage(3.0)
+                }
+
+                else {
+                    bullet.remove()
                 }
             }
         }
