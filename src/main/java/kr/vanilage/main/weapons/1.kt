@@ -18,7 +18,7 @@ class `1`(override val coolTick : Int) : Weapon{
         val bullet = player.world.spawn(player.location, Turtle::class.java)
         bullet.setBaby()
         bullet.isVisibleByDefault = true
-        bullet.isInvulnerable = true
+        bullet.isInvulnerable = false
 
         val entities = player.getNearbyEntities(50.0, 50.0, 50.0)
 
