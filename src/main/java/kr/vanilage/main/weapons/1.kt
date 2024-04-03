@@ -21,7 +21,7 @@ class `1`(override val coolTick : Int) : Weapon{
         bullet.isVisibleByDefault = false
         bullet.isInvulnerable = true
 
-        val entities = bullet.getNearbyEntities(10.0, 10.0, 10.0)
+        val entities = player.getNearbyEntities(10.0, 10.0, 10.0)
 
         val filteredEntity = entities.filter { it.uniqueId != player.uniqueId && it is LivingEntity } as ArrayList<Entity>
 
