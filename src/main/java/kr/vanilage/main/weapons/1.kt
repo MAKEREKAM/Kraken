@@ -82,8 +82,8 @@ class `1`(override val coolTick : Int) : Weapon{
             override fun run() {
                 if (!bullet.isDead) {
                     display.teleport(bullet.location.apply {
-                        yaw = display.yaw + 90
-                        pitch = display.pitch + 90
+                        yaw = display.yaw + 130
+                        pitch = display.pitch + 130
                     })
 
                     Bukkit.getScheduler().runTaskLater(Main.instance, this, 1)
