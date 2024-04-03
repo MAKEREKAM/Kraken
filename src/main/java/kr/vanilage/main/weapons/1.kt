@@ -3,10 +3,15 @@ package kr.vanilage.main.weapons
 import kr.vanilage.main.Main
 import kr.vanilage.main.Weapon
 import org.bukkit.Bukkit
+import org.bukkit.Material
+import org.bukkit.block.Conduit
+import org.bukkit.entity.BlockDisplay
 import org.bukkit.entity.Entity
+import org.bukkit.entity.ItemDisplay
 import org.bukkit.entity.LivingEntity
 import org.bukkit.entity.Player
 import org.bukkit.entity.Turtle
+import org.bukkit.inventory.ItemStack
 import java.util.UUID
 
 class `1`(override val coolTick : Int) : Weapon{
@@ -19,6 +24,9 @@ class `1`(override val coolTick : Int) : Weapon{
         bullet.setBaby()
         bullet.isVisibleByDefault = false
         bullet.isInvulnerable = true
+
+        val display = bullet.world.spawn(bullet.location, BlockDisplay::class.java)
+        display.block = Material.CONDUIT.createBlockData()
 
         val entities = player.getNearbyEntities(50.0, 50.0, 50.0)
 
@@ -63,6 +71,12 @@ class `1`(override val coolTick : Int) : Weapon{
                 else {
                     bullet.remove()
                 }
+            }
+        }
+
+        val teleportDisplay = object : Runnable {
+            override fun run() {
+
             }
         }
 
