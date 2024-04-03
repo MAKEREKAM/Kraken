@@ -43,10 +43,6 @@ class `1`(override val coolTick : Int) : Weapon{
                     }
 
                     Bukkit.getScheduler().runTask(Main.instance, setVelocity)
-
-                    (attackEntity as LivingEntity).damage(3.0)
-
-                    Bukkit.getScheduler().runTaskLater(Main.instance, this, 1)
                 }
 
                 else {
