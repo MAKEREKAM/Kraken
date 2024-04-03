@@ -6,10 +6,13 @@ import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerInteractEvent
 import org.bukkit.plugin.java.JavaPlugin
+import kr.vanilage.main.weapons.`1`
 
 class Main : JavaPlugin() {
     override fun onEnable() {
         Bukkit.getConsoleSender().sendMessage("Hello, World!")
+
+        registerWeapon(10, `1`(100))
     }
 
     fun registerWeapon(customModelData : Int, weapon : Weapon) {
