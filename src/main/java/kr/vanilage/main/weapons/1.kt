@@ -16,17 +16,12 @@ class `1`(override val coolTick : Int) : Weapon{
         bullet.isVisibleByDefault = false
         bullet.isInvulnerable = true
 
-        val noAttackEntities = ArrayList<UUID>()
-        val entities = bullet.getNearbyEntities(10.0, 10.0, 10.0)
-
-        noAttackEntities.add(player.uniqueId)
+        val entities = bullet.getNearbyEntities(10.0, 10.0, 10.0).map { it.uniqueId } as ArrayList<UUID>
 
         val attack = object : Runnable {
             override fun run() {
                 if (!bullet.isDead) {
-
-
-
+                    entities
                 }
             }
         }
