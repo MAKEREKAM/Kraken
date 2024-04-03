@@ -1,6 +1,8 @@
 package kr.vanilage.main.weapons
 
+import kr.vanilage.main.Main
 import kr.vanilage.main.Weapon
+import org.bukkit.Bukkit
 import org.bukkit.entity.Entity
 import org.bukkit.entity.LivingEntity
 import org.bukkit.entity.Player
@@ -35,6 +37,8 @@ class `1`(override val coolTick : Int) : Weapon{
                     }
 
                     (attackEntity as LivingEntity).damage(3.0)
+
+                    Bukkit.getScheduler().runTaskLater(Main.instance, this, 1)
                 }
 
                 else {
