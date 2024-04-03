@@ -20,7 +20,7 @@ class `1`(override val coolTick : Int) : Weapon{
         bullet.isVisibleByDefault = true
         bullet.isInvulnerable = true
 
-        val entities = player.getNearbyEntities(10.0, 10.0, 10.0)
+        val entities = player.getNearbyEntities(50.0, 50.0, 50.0)
 
         val filteredEntity = entities.filter { it.uniqueId != player.uniqueId && it is LivingEntity } as ArrayList<Entity>
 
@@ -45,7 +45,7 @@ class `1`(override val coolTick : Int) : Weapon{
                                 (attackEntity as LivingEntity).damage(3.0)
                                 filteredEntity.remove(attackEntity)
 
-                                Bukkit.getScheduler().runTaskLater(Main.instance, attackEntityRunnable, 1)
+                                Bukkit.getScheduler().runTaskLater(Main.instance, attackEntityRunnable, 5)
                             }
                         }
                     }
