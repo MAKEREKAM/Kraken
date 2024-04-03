@@ -26,10 +26,18 @@ class `1`(override val coolTick : Int) : Weapon{
 
         val attack = object : Runnable {
             override fun run() {
-                if (filteredEntity.isNotEmpty()) {
+                if (filteredEntity.isNotEmpty() && !bullet.isDead) {
                     val attackEntity = filteredEntity[0]
 
                     val attackEntityRunnable = this
+
+                    val listSize = filteredEntity.size
+
+                    Bukkit.getScheduler().runTaskLater(Main.instance, Runnable {
+                        if (listSize == filteredEntity.size) {
+                            bullet.remove()
+                        }
+                    }, 100)
 
                     val setVelocity = object : Runnable {
                         override fun run() {
