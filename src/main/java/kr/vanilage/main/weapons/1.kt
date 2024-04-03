@@ -3,6 +3,7 @@ package kr.vanilage.main.weapons
 import kr.vanilage.main.Weapon
 import org.bukkit.entity.Player
 import org.bukkit.entity.Turtle
+import java.util.UUID
 
 class `1`(override val coolTick : Int) : Weapon{
     override fun setup() {
@@ -14,5 +15,15 @@ class `1`(override val coolTick : Int) : Weapon{
         bullet.setBaby()
         bullet.isVisibleByDefault = false
         bullet.isInvulnerable = true
+
+        val attackedEntities = ArrayList<UUID>()
+
+        val attack = object : Runnable {
+            override fun run() {
+                if (!bullet.isDead) {
+                    val entities = bullet.getNearbyEntities(10.0, 10.0, 10.0)
+                }
+            }
+        }
     }
 }
