@@ -20,7 +20,7 @@ class `1`(override val coolTick : Int) : Weapon{
 
         val entities = bullet.getNearbyEntities(10.0, 10.0, 10.0)
 
-        val filteredEntity = entities.filter { it.uniqueId != player.uniqueId && it is LivingEntity }
+        val filteredEntity = entities.filter { it.uniqueId != player.uniqueId && it is LivingEntity } as ArrayList<LivingEntity>
 
         val attack = object : Runnable {
             override fun run() {
