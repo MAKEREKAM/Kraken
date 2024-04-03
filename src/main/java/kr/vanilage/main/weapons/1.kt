@@ -6,6 +6,9 @@ import org.bukkit.Bukkit
 import org.bukkit.Material
 import org.bukkit.entity.*
 import org.bukkit.inventory.ItemStack
+import org.bukkit.util.Transformation
+import org.joml.AxisAngle4f
+import org.joml.Vector3f
 
 class `1`(override val coolTick : Int) : Weapon{
     override fun setup() {
@@ -22,6 +25,12 @@ class `1`(override val coolTick : Int) : Weapon{
         val display = bullet.world.spawn(bullet.location, ItemDisplay::class.java)
         display.itemStack = ItemStack(Material.CONDUIT)
         display.teleportDuration = 5
+        display.transformation = Transformation(
+            Vector3f(0F, 0F, 0F),
+            AxisAngle4f(0F, 0F, 0F, 0F),
+            Vector3f(1.5F, 1.5F, 1.5F),
+            AxisAngle4f(0F, 0F, 0F, 0F)
+        )
 
         val entities = player.getNearbyEntities(50.0, 50.0, 50.0)
 
