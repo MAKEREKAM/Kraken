@@ -33,19 +33,26 @@ class `1`(override val coolTick : Int) : Weapon{
 
                     val setVelocity = object : Runnable {
                         override fun run() {
-                            bullet.velocity =
-                                attackEntity.location.toVector()
-                                    .subtract(bullet.location.toVector()).normalize().multiply(3)
+                            val velocity = attackEntity.location.toVector()
+                                .subtract(bullet.location.toVector()).normalize().multiply(3)
 
-                            if (bullet.location.distance(attackEntity.location) >= 3) {
-                                Bukkit.getScheduler().runTaskLater(Main.instance, this, 5)
+                            if (!velocity.isZero) {
+
+                                if (bullet.location.distance(attackEntity.location) >= 3) {
+                                    Bukkit.getScheduler().runTaskLater(Main.instance, this, 5)
+                                }
+
+                                else {
+                                    (attackEntity as LivingEntity).damage(3.0)
+                                    filteredEntity.remove(attackEntity)
+
+                                    Bukkit.getScheduler().runTaskLater(Main.instance, attackEntityRunnable, 5)
+                                }
                             }
 
                             else {
-                                (attackEntity as LivingEntity).damage(3.0)
-                                filteredEntity.remove(attackEntity)
-
-                                Bukkit.getScheduler().runTaskLater(Main.instance, attackEntityRunnable, 5)
+                                bullet.remove()
+                                return
                             }
                         }
                     }
