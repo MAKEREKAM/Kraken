@@ -77,6 +77,12 @@ class `1`(override val coolTick : Int) : Weapon{
                     display.teleport(bullet)
                     display.location.yaw += 10
                     display.location.pitch += 10
+
+                    Bukkit.getScheduler().runTaskLater(Main.instance, this, 1)
+                }
+
+                else {
+                    display.remove()
                 }
             }
         }
