@@ -30,6 +30,8 @@ class `1`(override val coolTick : Int) : Weapon{
                     val attackEntity = filteredEntity[0]
                     filteredEntity.remove(attackEntity)
 
+                    val attackEntityRunnable = this
+
                     val setVelocity = object : Runnable {
                         override fun run() {
                             bullet.velocity =
@@ -41,7 +43,7 @@ class `1`(override val coolTick : Int) : Weapon{
 
                                 (attackEntity as LivingEntity).damage(3.0)
 
-                                Bukkit.getScheduler().runTaskLater(Main.instance, this, 1)
+                                Bukkit.getScheduler().runTaskLater(Main.instance, attackEntityRunnable, 1)
                             }
                         }
                     }
