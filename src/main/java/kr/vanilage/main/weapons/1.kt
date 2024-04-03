@@ -29,7 +29,6 @@ class `1`(override val coolTick : Int) : Weapon{
             override fun run() {
                 if (!bullet.isDead && filteredEntity.isNotEmpty()) {
                     val attackEntity = filteredEntity[0]
-                    filteredEntity.remove(attackEntity)
 
                     val attackEntityRunnable = this
 
@@ -45,6 +44,7 @@ class `1`(override val coolTick : Int) : Weapon{
 
                             else {
                                 (attackEntity as LivingEntity).damage(3.0)
+                                filteredEntity.remove(attackEntity)
 
                                 Bukkit.getScheduler().runTaskLater(Main.instance, attackEntityRunnable, 1)
                             }
