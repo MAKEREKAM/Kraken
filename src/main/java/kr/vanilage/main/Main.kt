@@ -24,6 +24,7 @@ class Main : JavaPlugin() {
                 fun onInteract(e : PlayerInteractEvent) {
                     if (!e.action.isRightClick) return
                     if (e.player.inventory.itemInMainHand.itemMeta == null) return
+                    if (!e.player.inventory.itemInMainHand.itemMeta.hasCustomModelData()) return
                     if (e.player.inventory.itemInMainHand.itemMeta.customModelData != customModelData) return
                     if (e.player.hasCooldown(Material.BOOK)) return
 
