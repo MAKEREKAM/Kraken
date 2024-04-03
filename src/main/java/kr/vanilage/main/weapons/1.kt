@@ -4,11 +4,8 @@ import kr.vanilage.main.Main
 import kr.vanilage.main.Weapon
 import org.bukkit.Bukkit
 import org.bukkit.Material
-import org.bukkit.entity.BlockDisplay
-import org.bukkit.entity.Entity
-import org.bukkit.entity.LivingEntity
-import org.bukkit.entity.Player
-import org.bukkit.entity.Turtle
+import org.bukkit.entity.*
+import org.bukkit.inventory.ItemStack
 
 class `1`(override val coolTick : Int) : Weapon{
     override fun setup() {
@@ -22,8 +19,8 @@ class `1`(override val coolTick : Int) : Weapon{
         bullet.isInvulnerable = true
         bullet.isSilent = true
 
-        val display = bullet.world.spawn(bullet.location, BlockDisplay::class.java)
-        display.block = Material.CONDUIT.createBlockData()
+        val display = bullet.world.spawn(bullet.location, ItemDisplay::class.java)
+        display.itemStack = ItemStack(Material.CONDUIT)
         display.teleportDuration = 5
 
         val entities = player.getNearbyEntities(50.0, 50.0, 50.0)
