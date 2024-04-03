@@ -46,5 +46,7 @@ class `1`(override val coolTick : Int) : Weapon{
                 }
             }
         }
+
+        Bukkit.getScheduler().runTask(Main.instance, attack)
     }
 }
