@@ -6,7 +6,7 @@ import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerInteractEvent
 import org.bukkit.plugin.java.JavaPlugin
-import kr.vanilage.main.weapons.`1`
+import kr.vanilage.main.weapons.`10`
 
 class Main : JavaPlugin() {
     companion object {
@@ -18,7 +18,7 @@ class Main : JavaPlugin() {
 
         instance = this
 
-        registerWeapon(10, `1`(100))
+        registerWeapon(10, `10`(100))
     }
 
     fun registerWeapon(customModelData : Int, weapon : Weapon) {

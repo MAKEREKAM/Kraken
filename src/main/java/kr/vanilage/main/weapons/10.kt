@@ -11,7 +11,7 @@ import org.bukkit.util.Transformation
 import org.joml.AxisAngle4f
 import org.joml.Vector3f
 
-class `1`(override val coolTick : Int) : Weapon{
+class `10`(override val coolTick : Int) : Weapon{
     override fun setup() {
 
     }
