@@ -93,6 +93,18 @@ class `10`(override val coolTick : Int) : Weapon{
                         10, 0.2, 0.2, 0.2, 0.0, null
                     )
 
+                    display.world.spawnParticle(
+                        Particle.FLAME,
+                        display.location,
+                        10, 0.2, 0.2, 0.2, 0.0, null
+                    )
+
+                    display.world.spawnParticle(
+                        Particle.ELECTRIC_SPARK,
+                        display.location,
+                        10, 0.2, 0.2, 0.2, 0.0, null
+                    )
+
                     Bukkit.getScheduler().runTaskLater(Main.instance, this, 1)
                 }
 
