@@ -35,7 +35,7 @@ class `1`(override val coolTick : Int) : Weapon{
 
                     val setVelocity = object : Runnable {
                         override fun run() {
-                            val velocity = attackEntity.location.toVector()
+                            bullet.velocity = attackEntity.location.toVector()
                                 .subtract(bullet.location.toVector()).normalize().multiply(3)
 
                             if (bullet.location.distance(attackEntity.location) >= 3) {
