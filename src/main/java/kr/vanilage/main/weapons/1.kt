@@ -24,7 +24,7 @@ class `1`(override val coolTick : Int) : Weapon{
 
         val display = bullet.world.spawn(bullet.location, BlockDisplay::class.java)
         display.block = Material.CONDUIT.createBlockData()
-        display.teleportDuration = 1
+        display.teleportDuration = 5
 
         val entities = player.getNearbyEntities(50.0, 50.0, 50.0)
 
@@ -48,7 +48,7 @@ class `1`(override val coolTick : Int) : Weapon{
                     val setVelocity = object : Runnable {
                         override fun run() {
                             bullet.velocity = attackEntity.location.toVector()
-                                .subtract(bullet.location.toVector()).normalize().multiply(2)
+                                .subtract(bullet.location.toVector()).normalize().multiply(3)
 
                             if (bullet.location.distance(attackEntity.location) >= 5) {
                                 Bukkit.getScheduler().runTaskLater(Main.instance, this, 5)
