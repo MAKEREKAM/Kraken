@@ -13,6 +13,8 @@ class Main : JavaPlugin() {
     }
 
     fun registerWeapon(customModelData : Int, weapon : Weapon) {
+        weapon.setup()
+
         Bukkit.getPluginManager().registerEvents(
             object : Listener {
                 @EventHandler
