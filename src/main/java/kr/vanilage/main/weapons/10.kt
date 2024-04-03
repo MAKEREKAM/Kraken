@@ -29,7 +29,7 @@ class `10`(override val coolTick : Int) : Weapon{
         display.transformation = Transformation(
             Vector3f(0F, 0F, 0F),
             AxisAngle4f(0F, 0F, 0F, 0F),
-            Vector3f(1.5F, 1.5F, 1.5F),
+            Vector3f(3F, 1.5F, 3F),
             AxisAngle4f(0F, 0F, 0F, 0F)
         )
 
