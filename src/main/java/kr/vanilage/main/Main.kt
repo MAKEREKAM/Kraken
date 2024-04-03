@@ -9,8 +9,14 @@ import org.bukkit.plugin.java.JavaPlugin
 import kr.vanilage.main.weapons.`1`
 
 class Main : JavaPlugin() {
+    companion object {
+        lateinit var instance : Main
+    }
+
     override fun onEnable() {
         Bukkit.getConsoleSender().sendMessage("Hello, World!")
+
+        instance = this
 
         registerWeapon(10, `1`(100))
     }
