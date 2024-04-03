@@ -20,6 +20,7 @@ class `1`(override val coolTick : Int) : Weapon{
         bullet.setBaby()
         bullet.isVisibleByDefault = false
         bullet.isInvulnerable = true
+        bullet.isSilent = true
 
         val display = bullet.world.spawn(bullet.location, BlockDisplay::class.java)
         display.block = Material.CONDUIT.createBlockData()
