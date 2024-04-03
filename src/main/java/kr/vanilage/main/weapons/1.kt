@@ -4,6 +4,7 @@ import kr.vanilage.main.Main
 import kr.vanilage.main.Weapon
 import org.bukkit.Bukkit
 import org.bukkit.Material
+import org.bukkit.Particle
 import org.bukkit.entity.*
 import org.bukkit.inventory.ItemStack
 import org.bukkit.util.Transformation
@@ -85,6 +86,12 @@ class `1`(override val coolTick : Int) : Weapon{
                         yaw = display.yaw + 130
                         pitch = display.pitch + 130
                     })
+
+                    display.world.spawnParticle(
+                        Particle.CRIT,
+                        display.location,
+                        10, 0.2, 0.2, 0.2, 0.0, null
+                    )
 
                     Bukkit.getScheduler().runTaskLater(Main.instance, this, 1)
                 }
