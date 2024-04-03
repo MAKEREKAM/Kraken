@@ -26,7 +26,9 @@ class `1`(override val coolTick : Int) : Weapon{
 
         val attack = object : Runnable {
             override fun run() {
-                if (!bullet.isDead && filteredEntity.isNotEmpty()) {
+                Bukkit.broadcastMessage(filteredEntity.size.toString())
+
+                if (filteredEntity.isNotEmpty()) {
                     val attackEntity = filteredEntity[0]
 
                     val attackEntityRunnable = this
@@ -36,23 +38,15 @@ class `1`(override val coolTick : Int) : Weapon{
                             val velocity = attackEntity.location.toVector()
                                 .subtract(bullet.location.toVector()).normalize().multiply(3)
 
-                            if (!velocity.isZero) {
-
-                                if (bullet.location.distance(attackEntity.location) >= 3) {
-                                    Bukkit.getScheduler().runTaskLater(Main.instance, this, 5)
-                                }
-
-                                else {
-                                    (attackEntity as LivingEntity).damage(3.0)
-                                    filteredEntity.remove(attackEntity)
-
-                                    Bukkit.getScheduler().runTaskLater(Main.instance, attackEntityRunnable, 5)
-                                }
+                            if (bullet.location.distance(attackEntity.location) >= 3) {
+                                Bukkit.getScheduler().runTaskLater(Main.instance, this, 5)
                             }
 
                             else {
-                                bullet.remove()
-                                return
+                                (attackEntity as LivingEntity).damage(3.0)
+                                filteredEntity.remove(attackEntity)
+
+                                Bukkit.getScheduler().runTaskLater(Main.instance, attackEntityRunnable, 5)
                             }
                         }
                     }
