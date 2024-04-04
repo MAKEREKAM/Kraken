@@ -22,9 +22,9 @@ class `10`(override val coolTick : Int) : Weapon{
     }
 
     override fun skill(player : Player) {
-        val bullet = player.world.spawn(player.location, Turtle::class.java)
+        val bullet = player.world.spawn(player.location, Bee::class.java)
         bullet.addScoreboardTag("10Bullet")
-        bullet.setBaby()
+        bullet.setAI(false)
         bullet.isVisibleByDefault = false
         bullet.isInvulnerable = true
         bullet.isSilent = true
