@@ -90,19 +90,19 @@ class `10`(override val coolTick : Int) : Weapon{
 
                     bullet.world.spawnParticle(
                         Particle.CRIT,
-                        bullet.location,
+                        display.location,
                         10, 0.2, 0.2, 0.2, 0.0, null
                     )
 
                     bullet.world.spawnParticle(
                         Particle.FLAME,
-                        bullet.location,
+                        display.location,
                         10, 0.2, 0.2, 0.2, 0.0, null
                     )
 
                     bullet.world.spawnParticle(
                         Particle.ELECTRIC_SPARK,
-                        bullet.location,
+                        display.location,
                         10, 0.2, 0.2, 0.2, 0.0, null
                     )
 
