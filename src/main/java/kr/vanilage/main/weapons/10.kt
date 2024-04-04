@@ -13,6 +13,7 @@ import org.bukkit.inventory.ItemStack
 import org.bukkit.potion.PotionEffect
 import org.bukkit.potion.PotionEffectType
 import org.bukkit.util.Transformation
+import org.bukkit.util.Vector
 import org.joml.AxisAngle4f
 import org.joml.Vector3f
 
@@ -37,6 +38,7 @@ class `10`(override val coolTick : Int) : Weapon{
                 false
             )
         )
+        bullet.velocity = Vector(0, 0, 0)
 
         val display = bullet.world.spawn(bullet.location, ItemDisplay::class.java)
         display.itemStack = ItemStack(Material.CONDUIT)
