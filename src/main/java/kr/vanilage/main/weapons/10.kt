@@ -27,7 +27,7 @@ class `10`(override val coolTick : Int) : Weapon{
         display.itemStack = ItemStack(Material.CONDUIT)
         display.teleportDuration = 5
         display.transformation = Transformation(
-            Vector3f(0F, 0F, 3F),
+            Vector3f(0F, 0F, 0F),
             AxisAngle4f(0F, 0F, 0F, 0F),
             Vector3f(2F, 2F, 2F),
             AxisAngle4f(0F, 0F, 0F, 0F)
