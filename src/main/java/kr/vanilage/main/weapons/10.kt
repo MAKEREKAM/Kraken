@@ -1,11 +1,14 @@
 package kr.vanilage.main.weapons
 
+import io.papermc.paper.event.entity.EntityMoveEvent
 import kr.vanilage.main.Main
 import kr.vanilage.main.Weapon
 import org.bukkit.Bukkit
 import org.bukkit.Material
 import org.bukkit.Particle
 import org.bukkit.entity.*
+import org.bukkit.event.EventHandler
+import org.bukkit.event.Listener
 import org.bukkit.inventory.ItemStack
 import org.bukkit.util.Transformation
 import org.joml.AxisAngle4f
@@ -13,7 +16,17 @@ import org.joml.Vector3f
 
 class `10`(override val coolTick : Int) : Weapon{
     override fun setup() {
-
+        Bukkit.getPluginManager().registerEvents(
+            object : Listener {
+                @EventHandler
+                fun onMove(e : EntityMoveEvent) {
+                    if (e.entity.scoreboardTags.contains("10Bullet")) {
+                        e.isCancelled = true
+                    }
+                }
+            }
+            , Main.instance
+        )
     }
 
     override fun skill(player : Player) {
