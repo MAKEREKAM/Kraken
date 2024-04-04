@@ -37,7 +37,7 @@ class `10`(override val coolTick : Int) : Weapon{
                 false
             )
         )
-        bullet.velocity = Vector(1,  1, 1)
+        bullet.velocity = bullet.location.direction.normalize().multiply(3)
 
         val display = bullet.world.spawn(bullet.location, ItemDisplay::class.java)
         display.itemStack = ItemStack(Material.CONDUIT)
