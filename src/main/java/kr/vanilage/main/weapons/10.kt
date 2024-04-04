@@ -84,11 +84,11 @@ class `10`(override val coolTick : Int) : Weapon{
             override fun run() {
                 if (!bullet.isDead) {
                     display.teleport(bullet.location.clone().apply {
-                        yaw = display.yaw + 130
-                        pitch = display.pitch + 130
-                    }.clone().add(
+                        yaw = display.yaw + 50
+                        pitch = display.pitch + 50
+                    }/*.clone().add(
                         bullet.location.clone().subtract(display.location).multiply(3.0)
-                    ))
+                    )*/)
 
                     bullet.world.spawnParticle(
                         Particle.CRIT,
