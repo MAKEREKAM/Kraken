@@ -18,6 +18,7 @@ class `10`(override val coolTick : Int) : Weapon{
 
     override fun skill(player : Player) {
         val bullet = player.world.spawn(player.location, Turtle::class.java)
+        bullet.addScoreboardTag("10Bullet")
         bullet.setBaby()
         bullet.isVisibleByDefault = false
         bullet.isInvulnerable = true
