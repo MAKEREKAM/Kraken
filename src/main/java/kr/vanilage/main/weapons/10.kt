@@ -16,17 +16,7 @@ import org.joml.Vector3f
 
 class `10`(override val coolTick : Int) : Weapon{
     override fun setup() {
-        Bukkit.getPluginManager().registerEvents(
-            object : Listener {
-                @EventHandler
-                fun onMove(e : EntityMoveEvent) {
-                    if (e.entity.scoreboardTags.contains("10Bullet")) {
-                        e.isCancelled = true
-                    }
-                }
-            }
-            , Main.instance
-        )
+
     }
 
     override fun skill(player : Player) {
