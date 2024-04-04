@@ -27,7 +27,7 @@ class `10`(override val coolTick : Int) : Weapon{
         display.itemStack = ItemStack(Material.CONDUIT)
         display.teleportDuration = 5
         display.transformation = Transformation(
-            Vector3f(0F, 0F, 0F),
+            Vector3f(3F, 0F, 0F),
             AxisAngle4f(0F, 0F, 0F, 0F),
             Vector3f(2F, 2F, 2F),
             AxisAngle4f(0F, 0F, 0F, 0F)
@@ -83,10 +83,7 @@ class `10`(override val coolTick : Int) : Weapon{
         val teleportDisplay = object : Runnable {
             override fun run() {
                 if (!bullet.isDead) {
-                    display.teleport(bullet.location.clone().apply {
-                        yaw = display.yaw + 50
-                        pitch = display.pitch + 50
-                    })
+                    display.teleport(bullet.location)
 
                     bullet.world.spawnParticle(
                         Particle.CRIT,
