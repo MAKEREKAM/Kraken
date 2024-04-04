@@ -23,6 +23,7 @@ class `10`(override val coolTick : Int) : Weapon{
         bullet.isInvulnerable = true
         bullet.isSilent = true
         bullet.setGravity(false)
+        bullet.setAI(false)
 
         val display = bullet.world.spawn(bullet.location, ItemDisplay::class.java)
         display.itemStack = ItemStack(Material.CONDUIT)
