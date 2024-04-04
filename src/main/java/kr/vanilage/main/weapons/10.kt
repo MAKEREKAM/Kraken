@@ -17,13 +17,10 @@ class `10`(override val coolTick : Int) : Weapon{
     }
 
     override fun skill(player : Player) {
-        val bullet = player.world.spawn(player.location, Turtle::class.java)
-        bullet.setBaby()
+        val bullet = player.world.spawn(player.location, Arrow::class.java)
         bullet.isVisibleByDefault = false
         bullet.isInvulnerable = true
         bullet.isSilent = true
-        bullet.setGravity(false)
-        bullet.setAI(false)
 
         val display = bullet.world.spawn(bullet.location, ItemDisplay::class.java)
         display.itemStack = ItemStack(Material.CONDUIT)
