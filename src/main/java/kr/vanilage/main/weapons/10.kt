@@ -10,6 +10,8 @@ import org.bukkit.entity.*
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.inventory.ItemStack
+import org.bukkit.potion.PotionEffect
+import org.bukkit.potion.PotionEffectType
 import org.bukkit.util.Transformation
 import org.joml.AxisAngle4f
 import org.joml.Vector3f
@@ -26,6 +28,15 @@ class `10`(override val coolTick : Int) : Weapon{
         bullet.isVisibleByDefault = false
         bullet.isInvulnerable = true
         bullet.isSilent = true
+        bullet.addPotionEffect(
+            PotionEffect(
+                PotionEffectType.SLOW,
+                PotionEffect.INFINITE_DURATION,
+                255,
+                false,
+                false
+            )
+        )
 
         val display = bullet.world.spawn(bullet.location, ItemDisplay::class.java)
         display.itemStack = ItemStack(Material.CONDUIT)
