@@ -74,7 +74,7 @@ class `10`(override val coolTick : Int) : Weapon{
                             bullet.velocity = attackEntity.location.toVector()
                                 .subtract(bullet.location.toVector()).normalize().multiply(3)
 
-                            if (bullet.location.distance(attackEntity.location) >= 5) {
+                            if (bullet.location.distance(attackEntity.location) >= 7) {
                                 Bukkit.getScheduler().runTaskLater(Main.instance, this, 5)
                             }
 
