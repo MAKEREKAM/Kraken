@@ -21,7 +21,7 @@ class `10`(override val coolTick : Int) : Weapon{
     override fun skill(player : Player) {
         val bullet = player.world.spawn(player.location, Bee::class.java)
         bullet.addScoreboardTag("10Bullet")
-        bullet.isVisibleByDefault = true
+        bullet.isVisibleByDefault = false
         bullet.isInvulnerable = true
         bullet.isSilent = true
         bullet.addPotionEffect(
