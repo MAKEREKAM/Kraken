@@ -98,11 +98,9 @@ class `10`(override val coolTick : Int) : Weapon{
             }
         }
 
-        val teleportDisplay = object : Runnable {
+        val spawnParticle = object : Runnable {
             override fun run() {
                 if (!bullet.isDead) {
-                    display.teleport(bullet.location)
-
                     bullet.world.spawnParticle(
                         Particle.CRIT,
                         display.location,
@@ -123,14 +121,10 @@ class `10`(override val coolTick : Int) : Weapon{
 
                     Bukkit.getScheduler().runTaskLater(Main.instance, this, 1)
                 }
-
-                else {
-                    display.remove()
-                }
             }
         }
 
         Bukkit.getScheduler().runTask(Main.instance, attack)
-        Bukkit.getScheduler().runTask(Main.instance, teleportDisplay)
+        Bukkit.getScheduler().runTask(Main.instance, spawnParticle)
     }
 }
