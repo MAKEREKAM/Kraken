@@ -81,7 +81,7 @@ class `10`(override val coolTick : Int) : Weapon{
                                 attackEntity.world.playSound(
                                     attackEntity.location,
                                     "kraken:10attack",
-                                    2F, 1F
+                                    3F, 1F
                                 )
 
                                 Bukkit.getScheduler().runTaskLater(Main.instance, attackEntityRunnable, 5)
