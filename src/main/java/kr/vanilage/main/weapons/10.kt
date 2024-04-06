@@ -33,7 +33,6 @@ class `10`(override val coolTick : Int) : Weapon{
                 false
             )
         )
-        bullet.velocity = bullet.location.direction.normalize().multiply(3)
 
         val entities = player.getNearbyEntities(50.0, 50.0, 50.0)
 
