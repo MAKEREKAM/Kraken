@@ -33,6 +33,7 @@ class `10`(override val coolTick : Int) : Weapon{
                 false
             )
         )
+        bullet.isSilent = true
 
         val entities = player.getNearbyEntities(50.0, 50.0, 50.0)
 
