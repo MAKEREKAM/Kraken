@@ -3,15 +3,10 @@ package kr.vanilage.main.weapons
 import kr.vanilage.main.Main
 import kr.vanilage.main.Weapon
 import org.bukkit.Bukkit
-import org.bukkit.Material
 import org.bukkit.Particle
 import org.bukkit.entity.*
-import org.bukkit.inventory.ItemStack
 import org.bukkit.potion.PotionEffect
 import org.bukkit.potion.PotionEffectType
-import org.bukkit.util.Transformation
-import org.joml.AxisAngle4f
-import org.joml.Vector3f
 
 class `10`(override val coolTick : Int) : Weapon{
     override fun setup() {
