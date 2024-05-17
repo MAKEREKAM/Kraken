@@ -94,6 +94,12 @@ class `11`(override val coolTick : Int) : Weapon{
 
                         Bukkit.getScheduler().runTask(Main.instance, teleportDisplay)
 
+                        player.world.playSound(
+                            player.location,
+                            "kraken:11start",
+                            1F, 1F
+                        )
+
                         Bukkit.getScheduler().runTaskLater(Main.instance, object : Runnable {
                             override fun run() {
                                 snowball.remove()
