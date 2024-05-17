@@ -19,7 +19,7 @@ class Main : JavaPlugin() {
         instance = this
 
         registerWeapon(10, `10`(100))
-        registerWeapon(11, `11`(100))
+        registerWeapon(11, `11`(60))
     }
 
     fun registerWeapon(customModelData : Int, weapon : Weapon) {
