@@ -34,6 +34,7 @@ class `11`(override val coolTick : Int) : Weapon{
                     if (e.entity.uniqueId == bullet.uniqueId) {
                         val location = e.hitBlock!!.location
                         val distance = location.distance(player.location)
+                        if (distance > 50) return
 
                         val snowball = player.launchProjectile(Snowball::class.java)
                         snowball.isVisibleByDefault = false
