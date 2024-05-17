@@ -25,6 +25,8 @@ class `11`(override val coolTick : Int) : Weapon{
         bullet.setGravity(false)
         bullet.velocity = player.location.direction.normalize().multiply(20)
 
+        // "움직이고 있으면 발동 불가하게 해야함"
+
         Bukkit.getPluginManager().registerEvents(
             object : Listener {
                 @EventHandler
@@ -128,6 +130,11 @@ class `11`(override val coolTick : Int) : Weapon{
                                     1F, 2F
                                 )
 
+                                player.world.spawnParticle(
+                                    Particle.EXPLOSION_LARGE,
+                                    location,
+                                    5, 0.5, 0.5, 0.5, 0.0, null
+                                )
                             }
                         }, 11)
                     }
