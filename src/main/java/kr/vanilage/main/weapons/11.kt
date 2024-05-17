@@ -179,7 +179,7 @@ class `11`(override val coolTick : Int) : Weapon{
                                     builder.trail(true)
 
                                     fireworkMeta.addEffect(builder.build())
-                                    fireworkMeta.power = 2
+                                    fireworkMeta.power = 0
 
                                     firework.fireworkMeta = fireworkMeta
                                 }, 4)
