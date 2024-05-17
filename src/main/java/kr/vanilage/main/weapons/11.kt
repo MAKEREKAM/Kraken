@@ -53,15 +53,6 @@ class `11`(override val coolTick : Int) : Weapon{
                         var rotation = 0F
                         val playerYaw = player.yaw
 
-                        display.world.playSound(
-                            display.location, Sound.ITEM_TRIDENT_THROW, 1F, 0.6F)
-
-                        display.world.playSound(
-                            display.location, Sound.ITEM_TRIDENT_THROW, 0.5F, 0.55F)
-
-                        display.world.playSound(
-                            display.location, Sound.BLOCK_NOTE_BLOCK_BASS, 0.2F, 0.55F)
-
                         val teleportDisplay = object : Runnable {
                             override fun run() {
                                 if (!snowball.isDead) {
