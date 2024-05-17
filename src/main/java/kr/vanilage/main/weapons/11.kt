@@ -174,7 +174,7 @@ class `11`(override val coolTick : Int) : Weapon{
 
                                     val builder = FireworkEffect.builder()
                                     builder.withColor(Color.RED)
-                                    builder.with(FireworkEffect.Type.BALL)
+                                    builder.with(FireworkEffect.Type.BALL_LARGE)
 
                                     fireworkMeta.addEffect(builder.build())
                                     fireworkMeta.power = 0
