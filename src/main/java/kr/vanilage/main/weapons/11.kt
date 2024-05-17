@@ -104,7 +104,7 @@ class `11`(override val coolTick : Int) : Weapon{
                                     }
                                 }
                             }
-                        }, 100)
+                        }, 10)
                     }
                 }
             }, Main.instance
