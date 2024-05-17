@@ -122,7 +122,7 @@ class `11`(override val coolTick : Int) : Weapon{
                                 player.world.playSound(
                                     location,
                                     Sound.ENTITY_GENERIC_EXPLODE,
-                                    3F, 0.7F
+                                    1F, 0.7F
                                 )
 
                                 player.world.playSound(
@@ -154,6 +154,14 @@ class `11`(override val coolTick : Int) : Weapon{
                                     snowballLocation,
                                     150, 0.0, 0.0, 0.0, 1.0, null
                                 )
+
+                                Bukkit.getScheduler().runTaskLater(Main.instance, Runnable {
+                                    player.world.playSound(
+                                        location,
+                                        "kraken:11attack",
+                                        1F, 1F
+                                    )
+                                }, 4)
                             }
                         }, 11)
                     }
