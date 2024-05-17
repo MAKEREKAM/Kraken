@@ -39,7 +39,7 @@ class `11`(override val coolTick : Int) : Weapon{
                         val snowball = player.launchProjectile(Snowball::class.java)
                         snowball.isVisibleByDefault = false
                         snowball.setGravity(false)
-                        snowball.velocity = player.location.direction.normalize().multiply(distance / 20)
+                        snowball.velocity = player.location.direction.normalize().multiply(distance / 10)
 
                         val display = snowball.world.spawn(player.location, ItemDisplay::class.java)
                         val itemStack = ItemStack(Material.NETHERITE_AXE)
