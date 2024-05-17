@@ -81,6 +81,8 @@ class `11`(override val coolTick : Int) : Weapon{
                                         2, 0.1, 0.1, 0.1, 0.0
                                     )
 
+                                    snowball.velocity = player.location.direction.normalize().multiply(distance / 10)
+
                                     Bukkit.getScheduler().runTaskLater(Main.instance, this, 1)
                                 }
                                 else {
