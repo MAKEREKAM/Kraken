@@ -146,7 +146,13 @@ class `11`(override val coolTick : Int) : Weapon{
                                 player.world.spawnParticle(
                                     Particle.FLAME,
                                     snowballLocation,
-                                    100, 0.0, 0.0, 0.0, 1.0, null
+                                    150, 0.0, 0.0, 0.0, 1.0, null
+                                )
+
+                                player.world.spawnParticle(
+                                    Particle.SOUL_FIRE_FLAME,
+                                    snowballLocation,
+                                    150, 0.0, 0.0, 0.0, 1.0, null
                                 )
                             }
                         }, 11)
