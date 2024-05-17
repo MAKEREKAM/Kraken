@@ -23,9 +23,7 @@ class `11`(override val coolTick : Int) : Weapon{
         bullet.addScoreboardTag("11Bullet")
         bullet.isVisibleByDefault = false
         bullet.setGravity(false)
-        bullet.velocity = player.location.direction.normalize().multiply(20)
-
-        // "움직이고 있으면 발동 불가하게 해야함"
+        bullet.velocity = player.location.direction.normalize().multiply(50)
 
         Bukkit.getPluginManager().registerEvents(
             object : Listener {
