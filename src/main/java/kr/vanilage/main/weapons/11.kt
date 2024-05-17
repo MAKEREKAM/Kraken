@@ -57,6 +57,7 @@ class `11`(override val coolTick : Int) : Weapon{
 
                         var rotation = 0F
                         val playerYaw = player.yaw
+                        val playerDirection = player.location.direction
 
                         val teleportDisplay = object : Runnable {
                             override fun run() {
@@ -81,7 +82,7 @@ class `11`(override val coolTick : Int) : Weapon{
                                         2, 0.1, 0.1, 0.1, 0.0
                                     )
 
-                                    snowball.velocity = player.location.direction.normalize().multiply(distance / 10)
+                                    snowball.velocity = playerDirection.normalize().multiply(distance / 10)
 
                                     Bukkit.getScheduler().runTaskLater(Main.instance, this, 1)
                                 }
