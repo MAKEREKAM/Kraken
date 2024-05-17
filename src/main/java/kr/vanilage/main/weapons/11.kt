@@ -167,6 +167,21 @@ class `11`(override val coolTick : Int) : Weapon{
                                         Sound.BLOCK_PISTON_CONTRACT,
                                         2F, 1F
                                     )
+
+                                    val firework = player.world.spawn(snowballLocation, Firework::class.java)
+                                    val fireworkMeta = firework.fireworkMeta
+
+                                    val builder = FireworkEffect.builder()
+                                    builder.withColor(Color.RED)
+                                    builder.withFade(Color.RED)
+                                    builder.with(FireworkEffect.Type.BALL)
+                                    builder.flicker(true)
+                                    builder.trail(true)
+
+                                    fireworkMeta.addEffect(builder.build())
+                                    fireworkMeta.power = 2
+
+                                    firework.fireworkMeta = fireworkMeta
                                 }, 4)
                             }
                         }, 11)
