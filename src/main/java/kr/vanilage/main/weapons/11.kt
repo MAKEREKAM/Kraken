@@ -121,6 +121,12 @@ class `11`(override val coolTick : Int) : Weapon{
                                     Sound.ENTITY_GENERIC_EXPLODE,
                                     3F, 0.7F
                                 )
+
+                                player.world.playSound(
+                                    player.location,
+                                    Sound.ENTITY_WARDEN_SONIC_BOOM,
+                                    1F, 2F
+                                )
                             }
                         }, 11)
                     }
