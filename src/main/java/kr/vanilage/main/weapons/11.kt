@@ -41,7 +41,11 @@ class `11`(override val coolTick : Int) : Weapon{
                         snowball.velocity = player.location.direction.normalize().multiply(distance / 20)
 
                         val display = snowball.world.spawn(player.location, ItemDisplay::class.java)
-                        display.itemStack = ItemStack(Material.NETHERITE_AXE)
+                        val itemStack = ItemStack(Material.NETHERITE_AXE)
+                        val meta = itemStack.itemMeta
+                        meta.setCustomModelData(1101)
+                        itemStack.itemMeta = meta
+                        display.itemStack = itemStack
                         display.teleportDuration = 1
                         display.transformation = Transformation(
                             Vector3f(0F, 0F, 0F),
@@ -77,6 +81,10 @@ class `11`(override val coolTick : Int) : Weapon{
                                 }
                             }
                         }
+
+                        Bukkit.getScheduler().runTask(Main.instance, teleportDisplay)
+
+
                     }
                 }
             }, Main.instance
