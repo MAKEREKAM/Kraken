@@ -23,7 +23,7 @@ class `11`(override val coolTick : Int) : Weapon{
         bullet.addScoreboardTag("11Bullet")
         bullet.isVisibleByDefault = false
         bullet.setGravity(false)
-        bullet.velocity = player.location.direction.normalize().multiply(50)
+        bullet.velocity = player.location.direction.normalize().multiply(20)
 
         Bukkit.getPluginManager().registerEvents(
             object : Listener {
