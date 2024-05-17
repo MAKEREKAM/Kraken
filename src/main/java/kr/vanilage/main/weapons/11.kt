@@ -104,6 +104,7 @@ class `11`(override val coolTick : Int) : Weapon{
 
                         Bukkit.getScheduler().runTaskLater(Main.instance, object : Runnable {
                             override fun run() {
+                                val snowballLocation = snowball.location
                                 snowball.remove()
 
                                 location.getNearbyEntities(5.0, 5.0, 5.0).forEach {
@@ -132,19 +133,19 @@ class `11`(override val coolTick : Int) : Weapon{
 
                                 player.world.spawnParticle(
                                     Particle.EXPLOSION_LARGE,
-                                    location,
+                                    snowballLocation,
                                     5, 0.5, 0.5, 0.5, 0.0, null
                                 )
 
                                 player.world.spawnParticle(
                                     Particle.SONIC_BOOM,
-                                    location,
+                                    snowballLocation,
                                     5, 0.5, 0.5, 0.5, 0.0, null
                                 )
 
                                 player.world.spawnParticle(
                                     Particle.FLAME,
-                                    location,
+                                    snowballLocation,
                                     100, 0.0, 0.0, 0.0, 1.0, null
                                 )
                             }
