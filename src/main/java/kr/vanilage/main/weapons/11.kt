@@ -2,9 +2,8 @@ package kr.vanilage.main.weapons
 
 import kr.vanilage.main.Main
 import kr.vanilage.main.Weapon
-import org.bukkit.Bukkit
-import org.bukkit.Location
-import org.bukkit.Material
+import org.bukkit.*
+import org.bukkit.Particle.DustOptions
 import org.bukkit.entity.*
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
@@ -50,6 +49,43 @@ class `11`(override val coolTick : Int) : Weapon{
                             Vector3f(1F, 1F, 1F),
                             AxisAngle4f(1F, 0F, 0F, 0F)
                         )
+
+                        var rotation = 0F
+                        val playerYaw = player.yaw
+
+                        display.world.playSound(
+                            display.location, Sound.ITEM_TRIDENT_THROW, 1F, 0.6F)
+
+                        display.world.playSound(
+                            display.location, Sound.ITEM_TRIDENT_THROW, 0.5F, 0.55F)
+
+                        display.world.playSound(
+                            display.location, Sound.BLOCK_NOTE_BLOCK_BASS, 0.2F, 0.55F)
+
+                        val teleportDisplay = object : Runnable {
+                            override fun run() {
+                                if (!snowball.isDead) {
+                                    snowball.velocity = snowball.velocity.normalize()
+                                    display.teleport(snowball.location.apply {
+                                        pitch = rotation
+                                        yaw = playerYaw
+                                    })
+
+                                    rotation += 70F
+
+                                    snowball.world.spawnParticle(
+                                        Particle.REDSTONE,
+                                        snowball.location,
+                                        1, 0.0, 0.0, 0.0, 0.0, DustOptions(Color.BLACK, 1F)
+                                    )
+
+                                    Bukkit.getScheduler().runTaskLater(Main.instance, this, 1)
+                                }
+                                else {
+                                    display.remove()
+                                }
+                            }
+                        }
                     }
                 }
             }, Main.instance
