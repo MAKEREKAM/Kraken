@@ -74,6 +74,12 @@ class `11`(override val coolTick : Int) : Weapon{
                                         2, 0.1, 0.1, 0.1, 0.0
                                     )
 
+                                    snowball.world.spawnParticle(
+                                        Particle.SOUL_FIRE_FLAME,
+                                        snowball.location,
+                                        2, 0.1, 0.1, 0.1, 0.0
+                                    )
+
                                     Bukkit.getScheduler().runTaskLater(Main.instance, this, 1)
                                 }
                                 else {
