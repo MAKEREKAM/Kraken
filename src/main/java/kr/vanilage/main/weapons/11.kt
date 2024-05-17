@@ -29,10 +29,15 @@ class `11`(override val coolTick : Int) : Weapon{
             object : Listener {
                 @EventHandler
                 fun onProjectileHit(e : ProjectileHitEvent) {
-                    if (e.hitBlock == null) return
-
                     if (e.entity.uniqueId == bullet.uniqueId) {
-                        val location = e.hitBlock!!.location
+                        val location =
+                        if (e.hitBlock != null) {
+                            e.hitBlock!!.location
+                        } else if (e.hitEntity != null) {
+                            e.hitEntity!!.location
+                        } else {
+                            player.location
+                        }
                         val distance = location.distance(player.location)
                         if (distance > 50) return
 
