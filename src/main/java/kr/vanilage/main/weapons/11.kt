@@ -147,6 +147,21 @@ class `11`(override val coolTick : Int) : Weapon{
                                     150, 0.0, 0.0, 0.0, 1.0, null
                                 )
 
+                                val firework = player.world.spawn(snowballLocation, Firework::class.java)
+                                firework.isSilent = true
+                                val fireworkMeta = firework.fireworkMeta
+
+                                val builder = FireworkEffect.builder()
+                                builder.withColor(Color.RED)
+                                builder.with(FireworkEffect.Type.BALL_LARGE)
+
+                                fireworkMeta.addEffect(builder.build())
+                                fireworkMeta.power = 0
+
+                                firework.fireworkMeta = fireworkMeta
+
+                                firework.detonate()
+
                                 player.world.spawnParticle(
                                     Particle.SOUL_FIRE_FLAME,
                                     snowballLocation,
@@ -165,21 +180,6 @@ class `11`(override val coolTick : Int) : Weapon{
                                         Sound.BLOCK_PISTON_CONTRACT,
                                         2F, 1F
                                     )
-
-                                    val firework = player.world.spawn(snowballLocation, Firework::class.java)
-                                    firework.isSilent = true
-                                    val fireworkMeta = firework.fireworkMeta
-
-                                    val builder = FireworkEffect.builder()
-                                    builder.withColor(Color.RED)
-                                    builder.with(FireworkEffect.Type.BALL_LARGE)
-
-                                    fireworkMeta.addEffect(builder.build())
-                                    fireworkMeta.power = 0
-
-                                    firework.fireworkMeta = fireworkMeta
-
-                                    firework.detonate()
                                 }, 4)
                             }
                         }, 11)
