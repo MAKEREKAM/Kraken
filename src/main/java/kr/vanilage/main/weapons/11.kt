@@ -69,9 +69,9 @@ class `11`(override val coolTick : Int) : Weapon{
                                     rotation += 70F
 
                                     snowball.world.spawnParticle(
-                                        Particle.REDSTONE,
+                                        Particle.FLAME,
                                         snowball.location,
-                                        1, 0.0, 0.0, 0.0, 0.0, DustOptions(Color.BLACK, 1F)
+                                        2, 0.1, 0.1, 0.1, 0.0
                                     )
 
                                     Bukkit.getScheduler().runTaskLater(Main.instance, this, 1)
