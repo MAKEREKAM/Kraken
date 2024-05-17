@@ -109,6 +109,12 @@ class `11`(override val coolTick : Int) : Weapon{
                                         (it as LivingEntity).damage(3.0)
                                     }
                                 }
+
+                                player.world.playSound(
+                                    player.location,
+                                    "kraken:11attack",
+                                    1F, 1F
+                                )
                             }
                         }, 11)
                     }
