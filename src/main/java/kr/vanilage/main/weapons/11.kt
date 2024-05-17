@@ -169,14 +169,13 @@ class `11`(override val coolTick : Int) : Weapon{
                                     )
 
                                     val firework = player.world.spawn(snowballLocation, Firework::class.java)
+                                    firework.isSilent = true
                                     val fireworkMeta = firework.fireworkMeta
 
                                     val builder = FireworkEffect.builder()
                                     builder.withColor(Color.RED)
-                                    builder.withFade(Color.RED)
                                     builder.with(FireworkEffect.Type.BALL)
                                     builder.flicker(true)
-                                    builder.trail(true)
 
                                     fireworkMeta.addEffect(builder.build())
                                     fireworkMeta.power = 0
