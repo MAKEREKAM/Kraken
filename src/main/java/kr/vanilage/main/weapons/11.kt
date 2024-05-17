@@ -159,7 +159,7 @@ class `11`(override val coolTick : Int) : Weapon{
                                     player.world.playSound(
                                         location,
                                         "kraken:11attack",
-                                        1F, 1F
+                                        0.5F, 1F
                                     )
                                 }, 4)
                             }
