@@ -93,7 +93,17 @@ class `11`(override val coolTick : Int) : Weapon{
 
                         Bukkit.getScheduler().runTask(Main.instance, teleportDisplay)
 
+                        Bukkit.getScheduler().runTaskLater(Main.instance, object : Runnable {
+                            override fun run() {
+                                snowball.remove()
 
+                                location.getNearbyEntities(5.0, 5.0, 5.0).forEach {
+                                    if (it is LivingEntity) {
+                                        (it as LivingEntity).damage(3.0)
+                                    }
+                                }
+                            }
+                        }, 100)
                     }
                 }
             }, Main.instance
