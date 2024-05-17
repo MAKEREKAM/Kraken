@@ -182,6 +182,8 @@ class `11`(override val coolTick : Int) : Weapon{
                                     fireworkMeta.power = 0
 
                                     firework.fireworkMeta = fireworkMeta
+
+                                    firework.detonate()
                                 }, 4)
                             }
                         }, 11)
