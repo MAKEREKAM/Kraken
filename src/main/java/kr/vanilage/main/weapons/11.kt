@@ -134,6 +134,24 @@ class `11`(override val coolTick : Int) : Weapon{
                                     1F, 2F
                                 )
 
+                                player.playSound(
+                                    player.location,
+                                    "kraken:11attack",
+                                    1F, 1F
+                                )
+
+                                player.playSound(
+                                    player.location,
+                                    Sound.ENTITY_GENERIC_EXPLODE,
+                                    1F, 0.7F
+                                )
+
+                                player.playSound(
+                                    player.location,
+                                    Sound.ENTITY_WARDEN_SONIC_BOOM,
+                                    1F, 2F
+                                )
+
                                 player.world.spawnParticle(
                                     Particle.EXPLOSION_LARGE,
                                     snowballLocation,
