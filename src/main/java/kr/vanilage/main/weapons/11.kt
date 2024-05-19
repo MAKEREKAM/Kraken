@@ -203,6 +203,18 @@ class `11`(override val coolTick : Int) : Weapon{
                                         Sound.BLOCK_PISTON_CONTRACT,
                                         2F, 1F
                                     )
+
+                                    player.playSound(
+                                        player.location,
+                                        "kraken:11attack",
+                                        0.5F, 1F
+                                    )
+
+                                    player.playSound(
+                                        player.location,
+                                        Sound.BLOCK_PISTON_CONTRACT,
+                                        2F, 1F
+                                    )
                                 }, 4)
                             }
                         }, 11)
