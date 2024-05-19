@@ -19,7 +19,7 @@ class `11`(override val coolTick : Int) : Weapon{
     }
 
     override fun skill(player : Player) {
-        val bullet = player.world.spawn(player.location, Snowball::class.java)
+        val bullet = player.launchProjectile(Snowball::class.java)
         bullet.addScoreboardTag("11Bullet")
         bullet.isVisibleByDefault = false
         bullet.setGravity(false)
